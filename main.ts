@@ -5,7 +5,8 @@ function main() {
     1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6,
   ];
 
-  gameloop(board1);
+  let winner = gameloop(board1);
+  console.log(winner + " Wins!");
 }
 
 /*
@@ -55,6 +56,16 @@ function playerTurn(playerPosition, boardState): number {
   }
 
   return playerPosition;
+}
+
+function printBoard(p1Pos, p2Pos, board) {
+  let printedBoard = "";
+  for (let i = 0; i < board.length; i++) {
+    printedBoard.concat("|" + i);
+    if (p1Pos == i) printedBoard.concat("(P1)");
+    if (p2Pos == i) printedBoard.concat("(P2)");
+  }
+  console.log(printedBoard);
 }
 
 function diceRoll() {
