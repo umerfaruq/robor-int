@@ -25,9 +25,11 @@ function gameloop(boardState: number[]): string {
 
     console.log("Player 1 Turn:");
     p1Pos = playerTurn(p1Pos, boardState);
+    printBoard(p1Pos, p2Pos, boardState);
 
     console.log("Player 2 Turn:");
     p2Pos = playerTurn(p2Pos, boardState);
+    printBoard(p1Pos, p2Pos, boardState);
   }
 
   return p1Pos > p2Pos ? "Player 1" : "Player 2";
@@ -59,6 +61,7 @@ function playerTurn(playerPosition, boardState): number {
 }
 
 function printBoard(p1Pos, p2Pos, board) {
+  console.log("BOARD STATE:");
   let printedBoard = "";
   for (let i = 0; i < board.length; i++) {
     printedBoard.concat("|" + i);
@@ -71,3 +74,5 @@ function printBoard(p1Pos, p2Pos, board) {
 function diceRoll() {
   return Math.floor(Math.random() * (6 - 1) + 1);
 }
+
+main();
